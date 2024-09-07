@@ -1,7 +1,7 @@
 import random
 from tkinter import *
 
-def gerar_senhas():
+def generate_password():
 
     lower = 'abcdefghijklmnopqrstuvwxyz'
     upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -11,20 +11,22 @@ def gerar_senhas():
     all = lower + upper + numbers + symbols
     length = 16
 
-    senha = "".join(random.sample(all, length))
+    password = "".join(random.sample(all, length))
+    print(f'Your password: {password}')
 
     texto_resposta['text'] = f'''
-    Senha: {senha}'''
+    Password: {password}'''
 
-janela = Tk()
-janela.title("Gerador de Senhas")
-texto = Label(janela, text="Clique no botão gerar uma senha")
+
+window = Tk()
+window.title("Password Generator")
+texto = Label(window, text="Click to generate a strong password")
 texto.grid(column=0, row=0, padx=10, pady=10)
 
-botao = Button(janela, text="Gerar senha", command=gerar_senhas)
+botao = Button(window, text="Generate", command=generate_password)
 botao.grid(column=0, row=1, padx=10, pady=10)
 
-texto_resposta = Label(janela, text="")
+texto_resposta = Label(window, text="")
 texto_resposta.grid(column=0, row=2, padx=10, pady=10)
 
-janela.mainloop()
+window.mainloop()
